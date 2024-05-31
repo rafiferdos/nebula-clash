@@ -31,7 +31,7 @@ const Navbar = () => {
         </>
 
     return (
-        <nav className={theme === 'light' ? "shadow-xl sticky top-0 z-50 backdrop-filter bg-base-100/30 backdrop-blur-xl bg-opacity-30 border-b border-white" : "shadow-xl sticky top-0 z-50 backdrop-filter bg-base-100/30 backdrop-blur-xl bg-opacity-30 border-b border-gray-600"}>
+        <nav className={theme === 'light' ? "shadow-sm sticky top-0 z-50 backdrop-filter bg-base-100/80 backdrop-blur-xl bg-opacity-90 border-b border-white transition-shadow duration-100 [transform:translate3d(0,0,0)]" : "shadow-sm sticky top-0 z-50 backdrop-filter bg-base-100/80 backdrop-blur-xl bg-opacity-90 border-b border-gray-600 transition-shadow duration-100 [transform:translate3d(0,0,0)]"}>
             <div className="navbar max-w-7xl mx-auto lg:py-6 py-4 w-11/12">
                 <div className="navbar-start">
                     <div className="dropdown">
