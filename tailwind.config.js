@@ -9,7 +9,10 @@ export default {
       fontFamily: {
         nunito: ['Nunito Sans', 'sans-serif'],
         work: ['Work Sans', 'sans-serif'],
-      }
+      },
+      // backgroundImage: {
+      //   'gradient-to-r': 'linear-gradient(to right, var(--tw-gradient-stops))',
+      // },
     },
   },
   plugins: [
