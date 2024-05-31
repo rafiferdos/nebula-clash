@@ -10,9 +10,19 @@ export default {
         nunito: ['Nunito Sans', 'sans-serif'],
         work: ['Work Sans', 'sans-serif'],
       },
-      // backgroundImage: {
-      //   'gradient-to-r': 'linear-gradient(to right, var(--tw-gradient-stops))',
-      // },
+      keyframes: {
+        animatedgradient: {
+          '0%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+          '100%': { backgroundPosition: '0% 50%' },
+        },
+      },
+      backgroundSize: {
+        '300%': '300%',
+      },
+      animation: {
+        gradient: 'animatedgradient 3s ease infinite alternate',
+      },
     },
   },
   plugins: [
@@ -20,6 +30,9 @@ export default {
   ],
   daisyui: {
     themes: ['light', 'dark']
+  },
+  corePlugins: {
+    backdropFilter: true,
   }
 }
 

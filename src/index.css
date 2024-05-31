@@ -31,11 +31,22 @@ body {
     );
 
   /* Glassmorphism effect */
-  backdrop-filter: blur(10px); /* Adjust blur intensity */
-  -webkit-backdrop-filter: blur(10px);
+  /* backdrop-filter: blur(10px); 
+   -webkit-backdrop-filter: blur(10px); */
   background-size: cover;
   background-attachment: fixed;
 }
+
+.navbar-wrapper {
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+}
+
+
+
+
+
+
 
 /* Media query for mobile screens */
 @media (max-width: 768px) {
