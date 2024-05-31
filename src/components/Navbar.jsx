@@ -1,20 +1,14 @@
 import { Link, NavLink } from "react-router-dom"
-// import blankUser from '../assets/images/blank_user.jpg'
 import logo from '../assets/logo.png'
 import { LuUserPlus2 } from "react-icons/lu";
 import { useContext, useEffect } from "react";
 import { ThemeContext } from "../provider/ThemeProvider";
-
-// import { AuthContext } from "../provider/AuthProvider";
+import { AuthContext } from "../provider/AuthProvider";
 
 const Navbar = () => {
-    // const { user, logOut } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
 
-
-    const user = {
-        displayName: "Rafi Ferdos",
-        photoURL: "https://img.freepik.com/free-photo/handsome-bearded-guy-posing-against-white-wall_273609-20597.jpg?size=626&ext=jpg&ga=GA1.1.1518270500.1717113600&semt=sph",
-    }
+    const blankUser = 'https://img.freepik.com/premium-photo/default-male-user-icon-blank-profile-image-green-background-profile-picture-icon_962764-98397.jpg'
 
     const { theme, setTheme } = useContext(ThemeContext)
     const toggleThemeChange = (e) => {
@@ -31,9 +25,9 @@ const Navbar = () => {
 
     const links =
         <>
-            <NavLink to='/' className={({ isActive }) => isActive ? "text-purple-500 lg:border-b-purple-500 lg:border-b-2" : "hover:text-purple-300"}><a>Home</a></NavLink>
-            <NavLink to='/queries' className={({ isActive }) => isActive ? "text-purple-500 lg:border-b-purple-500 lg:border-b-2" : "hover:text-purple-300"}><a>Queries</a></NavLink>
-            <NavLink to='/recommendations_for_me' className={({ isActive }) => isActive ? "text-purple-500 lg:border-b-purple-500 lg:border-b-2" : "hover:text-purple-300"}><a>Recommendations For Me</a></NavLink>
+            <NavLink to='/' className={({ isActive }) => isActive ? "text-cyan-500 lg:border-b-cyan-500 lg:border-b-2" : "hover:text-cyan-300"}><a>Home</a></NavLink>
+            <NavLink to='/queries' className={({ isActive }) => isActive ? "text-cyan-500 lg:border-b-cyan-500 lg:border-b-2" : "hover:text-cyan-300"}><a>Queries</a></NavLink>
+            <NavLink to='/recommendations_for_me' className={({ isActive }) => isActive ? "text-cyan-500 lg:border-b-cyan-500 lg:border-b-2" : "hover:text-cyan-300"}><a>Recommendations For Me</a></NavLink>
         </>
 
     return (
@@ -75,12 +69,12 @@ const Navbar = () => {
                     {
                         user ?
                             <>
-                                <div className={theme === 'light' ? "dropdown dropdown-end md:ml-3 flex items-center gap-4 md:border md:border-purple-200 rounded-2xl px-4 py-1 md:bg-purple-400/20" : "dropdown dropdown-end md:ml-3 flex items-center gap-4 md:border md:border-purple-200/30 rounded-2xl px-4 py-1 md:bg-purple-500/15"}>
-                                    <span className="md:inline-block hidden">{user?.displayName}</span>
+                                <div className={theme === 'light' ? "dropdown dropdown-end md:ml-3 flex items-center gap-4 md:border md:border-cyan-200 rounded-2xl px-4 py-1 md:bg-cyan-400/20" : "dropdown dropdown-end md:ml-3 flex items-center gap-4 md:border md:border-cyan-200/30 rounded-2xl px-4 py-1 md:bg-cyan-500/15"}>
+                                    <span className="md:inline-block hidden font-nunito">{user?.displayName}</span>
                                     <div>
-                                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom items-center flex ring-2 ring-purple-500" data-tip={user?.displayName || "No Username"}>
+                                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom items-center flex ring-2 ring-cyan-500/40" data-tip={user?.displayName || "No Username"}>
                                             <div className="w-10 rounded-full">
-                                                <img alt="Tailwind CSS Navbar component" src={user?.photoURL || "blankUser"} referrerPolicy="no-referrer" />
+                                                <img alt="Tailwind CSS Navbar component" src={user?.photoURL || blankUser} referrerPolicy="no-referrer" />
                                             </div>
                                         </div>
                                         <ul tabIndex={0} className="mt-3 z-[1] gap-1 p-2 shadow menu menu-sm dropdown-content bg-base-200 rounded-box w-52">
@@ -88,8 +82,8 @@ const Navbar = () => {
                                             <li><NavLink to='/my_queries'>My Queries</NavLink></li>
                                             <li><NavLink to='/my_recommendations'>My Recommendations</NavLink></li>
                                             <hr className="my-2" />
-                                            <li 
-                                            // onClick={logOut}
+                                            <li
+                                                onClick={logOut}
                                             >
                                                 <a>Logout</a></li>
                                         </ul>
@@ -97,7 +91,7 @@ const Navbar = () => {
                                 </div>
                             </>
                             :
-                            <Link to='/login' className={theme === 'light' ? "btn btn-ghost md:ml-3 hover:bg-purple-100 rounded-full" : "btn btn-ghost md:ml-3 hover:bg-purple-950 rounded-full"}><LuUserPlus2 className="text-xl" /><p>Login</p></Link>
+                            <Link to='/login' className={theme === 'light' ? "btn btn-ghost md:ml-3 hover:bg-cyan-100/40 rounded-full" : "btn btn-ghost md:ml-3 hover:bg-cyan-950/20 rounded-full"}><LuUserPlus2 className="text-xl" /><p>Login</p></Link>
                     }
                 </div>
             </div>
