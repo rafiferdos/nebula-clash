@@ -26,8 +26,9 @@ const Navbar = () => {
     const links =
         <>
             <NavLink to='/' className={({ isActive }) => isActive ? "text-cyan-500 lg:border-b-cyan-500 lg:border-b-2" : "hover:text-cyan-300"}><a>Home</a></NavLink>
-            <NavLink to='/queries' className={({ isActive }) => isActive ? "text-cyan-500 lg:border-b-cyan-500 lg:border-b-2" : "hover:text-cyan-300"}><a>Queries</a></NavLink>
-            <NavLink to='/recommendations_for_me' className={({ isActive }) => isActive ? "text-cyan-500 lg:border-b-cyan-500 lg:border-b-2" : "hover:text-cyan-300"}><a>Recommendations For Me</a></NavLink>
+            <NavLink to='/all_contests' className={({ isActive }) => isActive ? "text-cyan-500 lg:border-b-cyan-500 lg:border-b-2" : "hover:text-cyan-300"}><a>All Contests</a></NavLink>
+            <NavLink to='/top_contests' className={({ isActive }) => isActive ? "text-cyan-500 lg:border-b-cyan-500 lg:border-b-2" : "hover:text-cyan-300"}><a>Top Contests</a></NavLink>
+            <NavLink to='/contact_us' className={({ isActive }) => isActive ? "text-cyan-500 lg:border-b-cyan-500 lg:border-b-2" : "hover:text-cyan-300"}><a>Contact Us</a></NavLink>
         </>
 
     return (
