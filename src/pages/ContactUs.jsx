@@ -47,7 +47,7 @@ const ContactUs = () => {
     return (
         <div className="container mx-auto max-w-7xl w-11/12 my-8 md:my-0">
             <div className="flex items-center justify-center md:h-[calc(100vh-150px)]">
-                <div className="lg:w-1/2 md:w-3/4 w-11/12 border md:p-7 lg:p-16 p-4 rounded-3xl glass">
+                <div className="lg:w-1/2 md:w-3/4 w-11/12 border md:p-7 lg:p-16 p-4 rounded-3xl glass shadow-2xl">
                     <h1 className="md:text-4xl text-xl font-nunito font-bold text-center">Contact Us</h1>
                     <p className="md:text-lg text-sm font-nunito text-center">For any queries, feel free to contact us </p>
                     <form className="mt-8" onSubmit={handleSubmit(onSubmit)}>
