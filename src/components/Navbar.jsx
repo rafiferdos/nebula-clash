@@ -78,12 +78,13 @@ const Navbar = () => {
                                                 <img alt="Tailwind CSS Navbar component" src={user?.photoURL || blankUser} referrerPolicy="no-referrer" />
                                             </div>
                                         </div>
-                                        <ul tabIndex={0} className="mt-3 z-[1] gap-1 p-2 shadow menu menu-sm dropdown-content bg-base-200 rounded-box w-52">
+                                        <ul tabIndex={0} className="mt-3 z-[1] gap-1 p-2 shadow menu menu-sm dropdown-content glass bg-base-100 rounded-box w-60">
                                             {/* <li><NavLink to='/recommendations_for_me'>Recommendations For Me</NavLink></li> */}
                                             <li className="cursor-default">
-                                                <div className="flex items-center justify-center flex-col glass pt-4 no-animation">
-                                                    <img className="w-10 h-10 rounded-full cursor-default" src={user?.photoURL || blankUser} alt="" />
-                                                <button className="btn btn-ghost hover:bg-transparent no-animation cursor-default">{user.displayName}</button>
+                                                <div className="flex items-center justify-center flex-col bg-base-300 cursor-default glass py-4 gap-2 no-animation">
+                                                    <img className="w-16 h-16 rounded-full cursor-default" src={user?.photoURL || blankUser} alt="" />
+                                                    <button className="font-nunito text-cyan-500 font-extrabold hover:bg-transparent no-animation cursor-default">{user.displayName}</button>
+                                                    <button className="font-nunito text-cyan-600 font-extrabold hover:bg-transparent no-animation cursor-default">{user.email}</button>
 
                                                 </div>
                                             </li>
