@@ -51,7 +51,7 @@ const Navbar = () => {
                     </div>
                     <Link to='/' className="btn btn-ghost hover:bg-transparent flex items-center justify-center cursor-pointer">
                         <img className="h-8 lg:h-12" src={logo} alt="" />
-                        <a className="text-lg font-nunito lg:text-3xl bg-clip-text text-transparent bg-gradient-to-tr font-extrabold from-orange-300 bg-300% animate-gradient to-red-900">Nebula Clash</a>
+                        <a className="text-lg font-nunito lg:text-3xl bg-clip-text text-transparent bg-gradient-to-r font-extrabold from-orange-300 to-cyan-600">Nebula Clash</a>
                     </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">

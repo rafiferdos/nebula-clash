@@ -20,9 +20,9 @@ export default {
       backgroundSize: {
         '300%': '300%',
       },
-      animation: {
-        gradient: 'animatedgradient 3s ease infinite alternate',
-      },
+      // animation: {
+      //   gradient: 'animatedgradient 7s ease infinite alternate',
+      // },
     },
   },
   plugins: [
