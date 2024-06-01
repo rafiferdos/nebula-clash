@@ -39,7 +39,7 @@ const Navbar = () => {
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden p-1">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </div>
-                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[100] shadow bg-base-200 rounded-box w-52 gap-3 p-4 *:font-semibold">
+                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[100] shadow bg-base-100 backdrop-blur-xl backdrop-filter rounded-box w-52 gap-3 p-4 *:font-semibold glass">
                             {links}
                             <hr className="my-1" />
                             <label className="flex cursor-pointer gap-2 justify-center">
@@ -80,6 +80,13 @@ const Navbar = () => {
                                         </div>
                                         <ul tabIndex={0} className="mt-3 z-[1] gap-1 p-2 shadow menu menu-sm dropdown-content bg-base-200 rounded-box w-52">
                                             {/* <li><NavLink to='/recommendations_for_me'>Recommendations For Me</NavLink></li> */}
+                                            <li className="cursor-default">
+                                                <div className="flex items-center justify-center flex-col glass pt-4 no-animation">
+                                                    <img className="w-10 h-10 rounded-full cursor-default" src={user?.photoURL || blankUser} alt="" />
+                                                <button className="btn btn-ghost hover:bg-transparent no-animation cursor-default">{user.displayName}</button>
+
+                                                </div>
+                                            </li>
                                             <li><NavLink to='/my_queries'>My Queries</NavLink></li>
                                             <li><NavLink to='/my_recommendations'>My Recommendations</NavLink></li>
                                             <hr className="my-2" />
