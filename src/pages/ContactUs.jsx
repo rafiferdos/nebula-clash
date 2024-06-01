@@ -11,7 +11,7 @@ const ContactUs = () => {
         formState: { errors },
     } = useForm()
 
-    const onSubmit = (data) => {
+    const onSubmit = () => {
         // Start the loading toast
         let toastId = toast.loading("Sending...", {
             style: {

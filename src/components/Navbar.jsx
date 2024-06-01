@@ -70,7 +70,7 @@ const Navbar = () => {
                     {
                         user ?
                             <>
-                                <div className={theme === 'light' ? "dropdown dropdown-end md:ml-3 flex items-center gap-4 md:border md:border-cyan-200 rounded-2xl px-4 py-1 md:bg-cyan-400/20" : "dropdown dropdown-end md:ml-3 flex items-center gap-4 md:border md:border-cyan-200/30 rounded-2xl px-4 py-1 md:bg-cyan-500/15"}>
+                                <div className={theme === 'light' ? "dropdown dropdown-end md:ml-3 flex items-center gap-4 md:border md:border-cyan-200 rounded-2xl px-4 py-1 md:bg-cyan-400/20 glass" : "dropdown dropdown-end md:ml-3 flex items-center gap-4 md:border md:border-cyan-200/30 rounded-2xl px-4 py-1 md:bg-cyan-500/15 glass"}>
                                     <span className="md:inline-block hidden font-nunito">{user?.displayName}</span>
                                     <div>
                                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom items-center flex ring-2 ring-cyan-500/40" data-tip={user?.displayName || "No Username"}>
