@@ -2,9 +2,6 @@ import errorImg from '../assets/images/404.svg'
 import { IoMdArrowBack } from "react-icons/io";
 
 const ErrorPage = () => {
-
-
-
     return (
         <>
             <div className='flex items-center justify-center min-h-screen'>
