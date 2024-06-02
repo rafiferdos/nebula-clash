@@ -4,13 +4,14 @@ import Main from "../layouts/Main"
 import Register from "../pages/Authentication/Register"
 import Login from "../pages/Authentication/Login"
 import ContactUs from "../pages/ContactUs"
+import ErrorPage from "../pages/ErrorPage"
 
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Main />,
-        errorElement: <div>404 Not Found</div>,
+        errorElement: <ErrorPage />,
         children: [
             {
                 index: true,

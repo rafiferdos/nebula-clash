@@ -58,7 +58,7 @@ const ContactUs = () => {
                             {errors.email && <span className="text-xs text-red-500">This field is required</span>}
                             <textarea placeholder="Message" className="textarea textarea-bordered h-32 bg-base-100/50" {...register("message", { required: true })} />
                             {errors.message && <span className="text-xs text-red-500">This field is required</span>}
-                            <button type="submit" className="btn glass lg:btn-lg md:btn-md btn-sm">Submit</button>
+                            <button type="submit" className="btn glass lg:btn-lg md:btn-md btn-sm bg-base-200">Submit</button>
                         </div>
                     </form>
                 </div>
