@@ -6,7 +6,7 @@ import { ThemeContext } from "../provider/ThemeProvider";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Navbar = () => {
-    const { user, logOut } = useContext(AuthContext)
+    const { user, logOut, loading } = useContext(AuthContext)
 
     const blankUser = 'https://img.freepik.com/premium-photo/default-male-user-icon-blank-profile-image-green-background-profile-picture-icon_962764-98397.jpg'
 
@@ -100,7 +100,19 @@ const Navbar = () => {
                                 </div>
                             </>
                             :
-                            <Link to='/login' className={theme === 'light' ? "btn btn-ghost md:ml-3 hover:bg-cyan-100/40 rounded-full" : "btn btn-ghost md:ml-3 hover:bg-cyan-950/20 rounded-full"}><LuUserPlus2 className="text-xl" /><p>Login</p></Link>
+                            <>
+                                {
+                                    loading
+                                        ?
+                                        <div className="avatar">
+                                            <div className="ring ring-cyan-400 rounded-full w-12 ml-4">
+                                                <div className="skeleton w-12 h-12 rounded-full"></div>
+                                            </div>
+                                        </div>
+                                        :
+                                        <Link to='/login' className={theme === 'light' ? "btn btn-ghost md:ml-3 hover:bg-cyan-100/40 rounded-full" : "btn btn-ghost md:ml-3 hover:bg-cyan-950/20 rounded-full"}><LuUserPlus2 className="text-xl" /><p>Login</p></Link>
+                                }
+                            </>
                     }
                 </div>
             </div>
