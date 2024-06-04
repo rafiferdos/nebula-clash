@@ -46,11 +46,6 @@ body {
   -webkit-backdrop-filter: blur(10px) !important;
 }
 
-
-
-
-
-
 /* Media query for mobile screens */
 @media (max-width: 768px) {
   body {
