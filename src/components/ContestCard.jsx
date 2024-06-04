@@ -16,7 +16,7 @@ const ContestCard = ({ contest }) => {
                 {/* eslint-disable-next-line react/prop-types */}
                 <p>{description.substring(0, 80)}...</p>
                 <div className="card-actions justify-center">
-                    <Link to={`/contest-details/${_id}`} className="btn glass rounded-full btn-block">Details</Link>
+                    <Link to={`/contest-details/${_id}`} className="btn glass rounded-full btn-block bg-base-300 font-extrabold">Details</Link>
                 </div>
             </div>
         </div>
