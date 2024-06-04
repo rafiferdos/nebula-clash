@@ -1,16 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
-import useAxiosSecure from "../hooks/useAxiosSecure";
 import ContestCard from "./ContestCard";
 import CardLoadingSkeleton from "./CardLoadingSkeleton";
+import useAxiosCommon from "../hooks/useAxiosCommon";
 
 const PopularContests = () => {
 
-    const axiosSecure = useAxiosSecure()
+    const axiosCommon = useAxiosCommon()
 
     const { data, isLoading } = useQuery({
         queryKey: ['popularContests'],
         queryFn: async () => {
-            const { data } = await axiosSecure.get('/popular-contests')
+            const { data } = await axiosCommon.get('/popular-contests')
             return data
         }
 

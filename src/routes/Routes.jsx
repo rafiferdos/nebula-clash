@@ -6,6 +6,7 @@ import Login from "../pages/Authentication/Login"
 import ContactUs from "../pages/ContactUs"
 import ErrorPage from "../pages/ErrorPage"
 import AllContests from "../pages/AllContests"
+import ContestDetails from "../pages/ContestDetails"
 
 
 const router = createBrowserRouter([
@@ -33,6 +34,14 @@ const router = createBrowserRouter([
             {
                 path: '/all_contests',
                 element: <AllContests />
+            },
+            {
+                path: '/top_contests',
+                // element: <TopContests />
+            },
+            {
+                path: '/contest-details/:id',
+                element: <ContestDetails />
             }
         ]
     }
