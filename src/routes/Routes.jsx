@@ -5,6 +5,7 @@ import Register from "../pages/Authentication/Register"
 import Login from "../pages/Authentication/Login"
 import ContactUs from "../pages/ContactUs"
 import ErrorPage from "../pages/ErrorPage"
+import AllContests from "../pages/AllContests"
 
 
 const router = createBrowserRouter([
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
             {
                 path: '/contact_us',
                 element: <ContactUs />
+            },
+            {
+                path: '/all_contests',
+                element: <AllContests />
             }
         ]
     }
