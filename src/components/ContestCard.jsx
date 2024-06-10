@@ -7,8 +7,8 @@ const ContestCard = ({ contest }) => {
     const { _id, name, description, image, participants } = contest
 
     return (
-        <div className="card lg:w-96 bg-base-200/40 hover:glass transition-all duration-500 hover:shadow-2xl ease-in-out shadow-lg">
-            <figure className="aspect-square"><img src={image} alt="contest image object-cover" /></figure>
+        <div className="card lg:w-96 bg-base-200/40 hover:glass transition-all duration-500 hover:shadow-2xl ease-in-out shadow-lg group">
+            <figure className="aspect-square"><img src={image} className="group-hover:scale-110 transition-all duration-700" alt="contest image object-cover" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{name}</h2>
                 {/* eslint-disable-next-line react/prop-types */}

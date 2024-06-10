@@ -71,7 +71,6 @@ const Navbar = () => {
                         user ?
                             <>
                                 <div className={theme === 'light' ? "dropdown dropdown-end md:ml-4" : "dropdown dropdown-end md:ml-4"}>
-                                    {/* <span className="md:inline-block hidden font-nunito">{user?.displayName}</span> */}
                                     <div>
                                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom items-center flex ring-2 ring-cyan-500/40">
                                             <div className="w-10 rounded-full">
@@ -88,6 +87,7 @@ const Navbar = () => {
 
                                                 </div>
                                             </li>
+                                            <li><NavLink to='/dashboard'>My Dashboard</NavLink></li>
                                             <li><NavLink to='/my_queries'>My Queries</NavLink></li>
                                             <li><NavLink to='/my_recommendations'>My Recommendations</NavLink></li>
                                             <hr className="my-2" />

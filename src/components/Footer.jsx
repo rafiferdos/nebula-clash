@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <div className="bg-base-300/60">
             <div className="flex flex-col items-center justify-center mx-auto w-11/12 max-w-7xl">
-                <footer className="footer p-4 md:p-10 text-base-content grid-flow-col">
+                <footer className="footer p-4 md:p-10 text-base-content grid-flow-col justify-between">
                     <nav>
                         <h6 className="footer-title">Services</h6>
                         <a className="link link-hover">Programming</a>
@@ -27,7 +27,7 @@ const Footer = () => {
                         <a className="link link-hover">Cookie policy</a>
                     </nav>
                 </footer>
-                <footer className="footer px-10 py-4 border-t text-base-content justify-center md:justify-normal border-base-300">
+                <footer className="footer px-10 py-4 border-t text-base-content justify-center md:justify-between border-base-300">
                     <aside className="items-center grid-flow-col">
                         <img src={logo} className='lg:h-16 w-auto md:h-12 h-8' alt="" />
                         <p className='font-extrabold font-nunito text-xl'>Nebula Clash</p>
