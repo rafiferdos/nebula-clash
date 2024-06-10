@@ -20,16 +20,16 @@ const router = createBrowserRouter([
                 element: <Home />
             },
             {
-                path: '/register',
-                element: <Register />
-            },
-            {
                 path: '/login',
                 element: <Login />
             },
             {
                 path: '/contact_us',
                 element: <ContactUs />
+            },
+            {
+                path: '/register',
+                element: <Register />
             },
             {
                 path: '/all_contests',
@@ -44,7 +44,13 @@ const router = createBrowserRouter([
                 element: <ContestDetails />
             }
         ]
-    }
+    },
+    {
+        path: '/dashboard',
+        element: <div>hi dsb</div>,
+        children: []
+    },
+
 ])
 
 export default router

@@ -4,6 +4,7 @@ import { LuUserPlus2 } from "react-icons/lu";
 import { useContext, useEffect } from "react";
 import { ThemeContext } from "../provider/ThemeProvider";
 import { AuthContext } from "../provider/AuthProvider";
+import { RingLoader } from "react-spinners";
 
 const Navbar = () => {
     const { user, logOut, loading } = useContext(AuthContext)
@@ -104,11 +105,12 @@ const Navbar = () => {
                                 {
                                     loading
                                         ?
-                                        <div className="avatar">
-                                            <div className="ring ring-cyan-400 rounded-full w-12 ml-4">
-                                                <div className="skeleton w-12 h-12 rounded-full"></div>
-                                            </div>
-                                        </div>
+                                        // <div className="avatar">
+                                        //     <div className="ring ring-cyan-400 rounded-full w-12 ml-4">
+                                        //         <div className="skeleton w-12 h-12 rounded-full"></div>
+                                        //     </div>
+                                        // </div>
+                                            <RingLoader color="#00ffff" size={40} className="ml-4" />
                                         :
                                         <Link to='/login' className={theme === 'light' ? "btn btn-ghost md:ml-3 hover:bg-cyan-100/40 rounded-full" : "btn btn-ghost md:ml-3 hover:bg-cyan-950/20 rounded-full"}><LuUserPlus2 className="text-xl" /><p>Login</p></Link>
                                 }
