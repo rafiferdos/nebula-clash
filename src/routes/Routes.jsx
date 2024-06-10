@@ -7,6 +7,7 @@ import ContactUs from "../pages/ContactUs"
 import ErrorPage from "../pages/ErrorPage"
 import AllContests from "../pages/AllContests"
 import ContestDetails from "../pages/ContestDetails"
+import DashboardLayout from "../layouts/DashboardLayout"
 
 
 const router = createBrowserRouter([
@@ -47,8 +48,12 @@ const router = createBrowserRouter([
     },
     {
         path: '/dashboard',
-        element: <div>hi dsb</div>,
-        children: []
+        element: <DashboardLayout />,
+        children: [
+            {
+                
+            }
+        ]
     },
 
 ])
