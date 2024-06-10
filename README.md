@@ -1,9 +1,57 @@
-# React + Vite
+# Nebula Clash
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to Nebula Clash, the ultimate platform where innovation meets recognition! Nebula Clash is a dynamic and user-friendly Project Contest Creation Platform designed to foster creativity, engage communities, and celebrate talent across various domains.
 
-Currently, two official plugins are available:
+## Live Site
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-# b9a12-client-side-rafiferdos
+Check out the live site at: [nebula-clash.web.app](https://nebula-clash.web.app)
+
+## Features
+
+- **Responsive Design**: Optimized for mobile, tablet, and desktop views.
+- **User Authentication**: Secure login and registration with email/password and Google Sign-In.
+- **Role Management**: Admin, Contest Creator, and User roles with specific functionalities.
+- **Contest Creation**: Creators can add, update, and manage contests.
+- **Participant Engagement**: Users can participate in contests, view their progress, and see contest details.
+- **Dynamic Leaderboards**: Display top participants based on contest wins.
+- **Custom Alerts**: Sweet alerts for all CRUD operations and authentication events.
+- **Pagination**: Efficiently navigate through large sets of data with paginated views.
+- **Dark Mode**: Toggle between light and dark themes for better user experience.
+- **Security**: JWT-based authentication and secure API endpoints.
+
+## Admin Credentials
+
+- **Username**: admin@nebula-clash.com
+- **Password**: admin123
+
+## Project Setup
+
+### Prerequisites
+
+- Node.js
+- Firebase CLI
+- Git
+
+### Installation
+
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/rafiferdos/nebula-clash.git
+
+2. Navigate to the project directory:
+   ```sh
+   cd nebula-clash
+3. Install dependencies:
+    ```sh
+    npm install
+
+4. Set up environment variables:
+Create a .env file in the root directory and add your Firebase and MongoDB credentials
+
+5.  Start the development server:
+    ```sh
+    npm start
+
+## Github Repositories
+- Client: [nebula-clash](github.com/rafiferdos/nebula-clash-client)
+- Server: [nebula-clash](github.com/rafiferdos/nebula-clash-server)
