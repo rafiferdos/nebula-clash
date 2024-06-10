@@ -53,5 +53,15 @@ Create a .env file in the root directory and add your Firebase and MongoDB crede
     npm start
 
 ## Github Repositories
-- Client: [nebula-clash](github.com/rafiferdos/nebula-clash-client)
-- Server: [nebula-clash](github.com/rafiferdos/nebula-clash-server)
+- Client: [nebula-clash](https://github.com/programming-hero-web-course1/b9a12-client-side-rafiferdos)
+- Server: [nebula-clash](https://github.com/programming-hero-web-course1/b9a12-server-side-rafiferdos)
+
+### Try Nebula Clash now and let your creativity shine! 🚀
+```sh
+Admin email: admin2024@gmail.com
+Admin password: Admin@2024
+FrontEnd Live Site Link: https://nebula-clash.web.app/
+Client Side github: https://github.com/programming-hero-web-course1/b9a12-client-side-rafiferdos
+Server Side github: https://github.com/programming-hero-web-course1/b9a12-server-side-rafiferdos
+Creator's email: creator@gmail.com
+Creator's password: Creator@2024
