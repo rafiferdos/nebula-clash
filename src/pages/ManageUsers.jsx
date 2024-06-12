@@ -58,6 +58,17 @@ const ManageUsers = () => {
         }
     }
 
+    const handleRoleChange = async (userId, newRole) => {
+        // send the new role to the server along with other properties, just update the role
+        try {
+            const { data } = await axiosSecure.put(`/update-user/${userId}`, { role: newRole });
+            toast.success('Role updated successfully!')
+        } catch (err) {
+            console.log(err)
+        }
+        refetch()
+    }
+
     return (
         <div className="flex flex-col gap-8 items-center justify-center my-20">
             <h1 className="text-4xl font-bold">Manage Users</h1>

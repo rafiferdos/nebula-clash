@@ -1,20 +1,12 @@
 import { useContext, useState } from 'react'
 import { GrLogout } from 'react-icons/gr'
 import { AiOutlineBars } from 'react-icons/ai'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../provider/AuthProvider'
-import { FaPlusCircle } from "react-icons/fa";
-import { TbLayoutCardsFilled } from "react-icons/tb";
 import { GrUserSettings } from "react-icons/gr";
-import { RiPagesFill } from "react-icons/ri";
-
-
-
-
 import logo from '../../assets/logo.png'
 import useRole from '../../hooks/useRols'
-import MenuItem from '../MenuItem'
 import AdminMenu from '../AdminMenu'
 import UserMenu from '../UserMenu'
 import CreatorMenu from '../CreatorMenu'
@@ -25,11 +17,16 @@ const Sidebar = () => {
 
     const [role, isLoading] = useRole()
 
-    console.log(role)
+    const navigate = useNavigate()
 
     // Sidebar Responsive Handler
     const handleToggle = () => {
         setActive(!isActive)
+    }
+
+    const logoutNow = () => {
+        logOut()
+        navigate('/login')
     }
     return (
         <>
@@ -84,6 +81,12 @@ const Sidebar = () => {
 
                         {/*  Menu Items */}
                         <nav>
+                            {
+                                isLoading &&
+                                <div className='flex justify-center items-center h-screen'>
+                                    <div className='loading loading-lg text-accent'></div>
+                                </div>
+                            }
                             {role === 'admin' && <AdminMenu />}
                             {role === 'creator' && <CreatorMenu />}
                             {role === 'user' && <UserMenu />}
@@ -107,7 +110,7 @@ const Sidebar = () => {
                         <span className='mx-4 font-medium'>Profile</span>
                     </NavLink>
                     <button
-                        onClick={logOut}
+                        onClick={logoutNow}
                         className='flex w-full items-center px-4 py-2 mt-5 hover:bg-base-300/40 transition-colors duration-300 transform'
                     >
                         <GrLogout className='w-5 h-5' />

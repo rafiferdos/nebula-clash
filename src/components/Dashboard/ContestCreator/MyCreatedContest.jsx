@@ -194,7 +194,7 @@ const MyCreatedContest = () => {
                                 </tbody>
                             </table>
                                 {
-                                    contests.length === 0 && 
+                                    contests && contests.length === 0 && 
                                     <div className="h-64 flex flex-col items-center justify-center gap-7">
                                         <h2 className="text-center text-2xl font-bold md:text-4xl">No contests found</h2>
                                         <p className="opacity-70 text-lg">Try adding <Link to='/dashboard/add_contest' className="text-accent hover:underline-offset-4 underline lg:no-underline hover:underline cursor-pointer">contest</Link></p>
