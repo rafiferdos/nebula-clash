@@ -17,6 +17,7 @@ import ContestSubmitted from "../components/Dashboard/ContestCreator/ContestSubm
 import ManageUsers from "../pages/ManageUsers"
 import ManageContests from "../pages/ManageContests"
 import ParticipatedContest from "../components/ParticipatedContest"
+import PaymentPage from "../pages/PaymentPage"
 
 
 const router = createBrowserRouter([
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
             {
                 index: true,
                 element: <Home />
+            },
+            {
+                path: '/contest-details/:id/payment',
+                element: <PaymentPage />
             },
             {
                 path: '/login',
@@ -52,7 +57,8 @@ const router = createBrowserRouter([
             {
                 path: '/contest-details/:id',
                 element: <ContestDetails />
-            }
+            },
+            
         ]
     },
     {

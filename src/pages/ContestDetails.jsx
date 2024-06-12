@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { IoMdArrowBack } from "react-icons/io";
 import useAxiosCommon from "../hooks/useAxiosCommon";
 import { useEffect, useState } from "react";
@@ -112,7 +112,7 @@ const ContestDetails = () => {
                                 </div>
                             </div>
                             <div className="card-actions justify-start">
-                                <button className="btn glass rounded-full bg-base-300" onClick={() => window.history.back()}>Register</button>
+                                <Link to={`/contest-details/${id}/payment`} className="btn glass rounded-full bg-base-300">Register</Link>
                             </div>
                             <div className="card-actions justify-end">
                                 <button className="btn glass rounded-full bg-base-300" onClick={() => window.history.back()}><IoMdArrowBack /></button>

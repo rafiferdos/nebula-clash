@@ -6,64 +6,65 @@ import { AuthContext } from '../provider/AuthProvider'
 import useAxiosSecure from '../hooks/useAxiosSecure'
 import toast from 'react-hot-toast'
 import useRole from '../hooks/useRols'
+import { useQuery } from '@tanstack/react-query'
 
 const UserMenu = () => {
-  const axiosSecure = useAxiosSecure()
-  const { user } = useContext(AuthContext)
-  const [role] = useRole()
-  // for modal
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const closeModal = () => {
-    setIsModalOpen(false)
-  }
-  const modalHandler = async () => {
-    console.log('I want to be a host')
-    try {
-      const currentUser = {
-        email: user?.email,
-        role: 'guest',
-        status: 'Requested',
-      }
-      const { data } = await axiosSecure.put(`/save-users`, currentUser)
-      console.log(data)
-      if (data.modifiedCount > 0) {
-        toast.success('Success! Please wait for admin confirmation')
-      } else {
-        toast.success('Please!, Wait for admin approval')
-      }
-    } catch (err) {
-      console.log(err)
-      toast.error(err.message)
-    } finally {
-      closeModal()
+    const axiosSecure = useAxiosSecure()
+    const { user } = useContext(AuthContext)
+    const [role] = useRole()
+    const userEmail = user?.email
+
+    const { data: users = [], isLoading, refetch } = useQuery({
+        queryKey: ['allUsers'],
+        queryFn: async () => {
+            const { data } = await axiosSecure.get(`/all-users`)
+            return data
+        }
+    })
+
+    // find user by email and update the role to requested
+    const handleCreatorStatus = async () => {
+        try {
+            const { data } = await axiosSecure.put(`/update-user-role/${userEmail}`, {
+                role: 'requested'
+            })
+            toast.success('Role requested successfully!')
+            refetch()
+        } catch (err) {
+            console.log(err)
+        }
     }
-  }
-  return (
-    <>
-      <MenuItem
-        icon={BsFingerprint}
-        label='My Participated Contests'
-        address='my_participated_contests'
-      />
 
-      {role === 'user' && (
-        <div
-          onClick={() => setIsModalOpen(true)}
-          className='flex items-center px-4 py-2 mt-5 rounded-full hover:bg-base-300/50  transition-colors duration-300 transform cursor-pointer'
-        >
-          <GrUserAdmin className='w-5 h-5' />
 
-          <button className='mx-4 font-medium'>Become A Creator</button>
-        </div>
-      )}
-      {/* Modal */}
-      {/* <HostModal
-        isOpen={isModalOpen}
-        closeModal={closeModal}
-        modalHandler={modalHandler}
-      /> */}
-    </>
-  )
+    if (isLoading) {
+        return (
+            <div className="flex items-center h-screen justify-center">
+                <div className="loading loading-infinity loading-lg text-accent"></div>
+            </div>
+        )
+    }
+
+
+    return (
+        <>
+            <MenuItem
+                icon={BsFingerprint}
+                label='My Participated Contests'
+                address='my_participated_contests'
+            />
+
+            {role === 'user' && (
+                <div
+                    //   onClick={() => setIsModalOpen(true)}
+                    className='flex items-center px-4 py-2 mt-5 rounded-full hover:bg-base-300/50  transition-colors duration-300 transform cursor-pointer'
+                >
+                    <GrUserAdmin className='w-5 h-5' />
+
+                    <button onClick={() => handleCreatorStatus(user._id)} className='mx-4 font-medium'>Become A Creator</button>
+                </div>
+            )}
+        </>
+    )
 }
 
 export default UserMenu
