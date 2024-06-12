@@ -163,7 +163,7 @@ const MyCreatedContest = () => {
                                 </thead>
                                 <tbody>
                                     {
-                                        contests && contests.map(({ name, description, _id }, index) => {
+                                        contests && contests.map(({ name, description, _id, status }, index) => {
                                             return (
                                                 <tr key={index}>
                                                     <td className="opacity-80">

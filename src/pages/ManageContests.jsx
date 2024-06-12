@@ -12,18 +12,12 @@ const ManageContests = () => {
     const { data: contests = [], isLoading, refetch } = useQuery({
         queryKey: ['allContestsUnfiltered'],
         queryFn: async () => {
-            const { data } = await axiosSecure.get('/all-contests')
+            const { data } = await axiosSecure.get('/all-contests-unfiltered')
             return data
         }
     })
 
-    if (isLoading) {
-        return (
-            <div className="flex items-center justify-center h-screen">
-                <div className="loading loading-infinity loading-lg text-accent"></div>
-            </div>
-        )
-    }
+    
 
     const { mutateAsync } = useMutation({
         mutationFn: async id => {
@@ -55,6 +49,14 @@ const ManageContests = () => {
             console.log(err)
         }
         refetch()
+    }
+
+    if (isLoading) {
+        return (
+            <div className="flex items-center justify-center h-screen">
+                <div className="loading loading-infinity loading-lg text-accent"></div>
+            </div>
+        )
     }
 
     return (
