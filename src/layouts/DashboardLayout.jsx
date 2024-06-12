@@ -6,7 +6,7 @@ const DashboardLayout = () => {
         <div className="relative min-h-screen md:flex">
             <Sidebar />
             <div className="flex-1">
-                <div className="p-5">
+                <div className="md:pl-52 px-4">
                     <Outlet />
                 </div>
             </div>

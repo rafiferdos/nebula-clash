@@ -11,7 +11,7 @@ const PrivateRoute = ({ children }) => {
 
     if (loading)
         return (
-            <div className="lg:min-h-[calc(100vh-450px)] flex items-center justify-center">
+            <div className="h-screen flex items-center justify-center">
                 <PacmanLoader color="rgb(6 182 212)" />
             </div>
         )

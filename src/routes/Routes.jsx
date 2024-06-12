@@ -8,6 +8,13 @@ import ErrorPage from "../pages/ErrorPage"
 import AllContests from "../pages/AllContests"
 import ContestDetails from "../pages/ContestDetails"
 import DashboardLayout from "../layouts/DashboardLayout"
+import PrivateRoute from "../components/PrivateRoute"
+import Profile from "../components/Dashboard/Common/Profile"
+import AddContest from "../components/Dashboard/ContestCreator/AddContest"
+import MyCreatedContest from "../components/Dashboard/ContestCreator/MyCreatedContest"
+import DashboardWelcome from "../components/Dashboard/Common/DashboardWelcome"
+import ContestSubmitted from "../components/Dashboard/ContestCreator/ContestSubmitted"
+import ManageUsers from "../pages/ManageUsers"
 
 
 const router = createBrowserRouter([
@@ -51,7 +58,28 @@ const router = createBrowserRouter([
         element: <DashboardLayout />,
         children: [
             {
-                
+                index: true,
+                element: <DashboardWelcome />
+            },
+            {
+                path: 'add_contest',
+                element: <AddContest />
+            },
+            {
+                path: 'my_created_contests',
+                element: <MyCreatedContest />
+            },
+            {
+                path: 'profile',
+                element: <Profile />
+            },
+            {
+                path: 'contest_submitted',
+                element: <ContestSubmitted />
+            },
+            {
+                path: 'manage_users',
+                element: <ManageUsers />
             }
         ]
     },
