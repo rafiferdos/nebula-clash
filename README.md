@@ -21,8 +21,8 @@ Check out the live site at: [nebula-clash.web.app](https://nebula-clash.web.app)
 
 ## Admin Credentials
 
-- **Username**: admin@nebula-clash.com
-- **Password**: admin123
+- **Username**: admin2024@gmail.com
+- **Password**: Admin@2024
 
 ## Project Setup
 

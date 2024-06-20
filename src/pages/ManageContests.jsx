@@ -17,26 +17,31 @@ const ManageContests = () => {
         }
     })
 
-    
+    const handleComment = () => {
+        document.getElementById('my_modal_2').close()
+        toast.success('Comment sent successfully!')
+    }
+
+
 
     const { mutateAsync } = useMutation({
         mutationFn: async id => {
-          const { data } = await axiosSecure.delete(`/delete-contest/${id}`)
-          return data
+            const { data } = await axiosSecure.delete(`/delete-contest/${id}`)
+            return data
         },
         onSuccess: data => {
-          console.log(data)
-          refetch()
-          toast.success('Successfully deleted')
+            console.log(data)
+            refetch()
+            toast.success('Successfully deleted')
         },
     })
 
     const handleDelete = async id => {
         console.log(id)
         try {
-          await mutateAsync(id)
+            await mutateAsync(id)
         } catch (err) {
-          console.log(err)
+            console.log(err)
         }
     }
 
@@ -96,7 +101,7 @@ const ManageContests = () => {
                                     </select> */}
                                     <div className={contest.status === 'open' ? "badge badge-success badge-outline" : "badge badge-warning badge-outline"}>
 
-                                    {contest.status}
+                                        {contest.status}
                                     </div>
                                 </td>
                                 <td className="px-8 py-4">
@@ -117,7 +122,7 @@ const ManageContests = () => {
                                     <button onClick={() => handleDelete(contest._id)} className="btn bg-red-500/50 rounded-full text-white"><IoTrashBin /></button>
                                 </td>
                                 <td className="px-8 py-4">
-                                    <button className="btn bg-yellow-500/50 rounded-full text-white"><FaRegCommentDots /></button>
+                                    <button onClick={() => document.getElementById('my_modal_2').showModal()} className="btn bg-yellow-500/50 rounded-full text-white"><FaRegCommentDots /></button>
                                 </td>
 
                             </tr>
@@ -125,6 +130,21 @@ const ManageContests = () => {
                     </tbody>
                 </table>
             </div>
+            <dialog id="my_modal_2" className="modal">
+                <div className="modal-box">
+                    <h3 className="font-bold text-lg">Comment: </h3>
+                    <textarea name="textarea" className="textarea textarea-accent w-full" id=""></textarea>
+                    <button
+                        onClick={handleComment}
+                        className="btn btn-block glass"
+                    >
+                        Send
+                    </button>
+                </div>
+                <form method="dialog" className="modal-backdrop">
+                    <button>close</button>
+                </form>
+            </dialog>
         </div>
     );
 };

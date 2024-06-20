@@ -7,6 +7,7 @@ import useAxiosSecure from '../hooks/useAxiosSecure'
 import toast from 'react-hot-toast'
 import useRole from '../hooks/useRols'
 import { useQuery } from '@tanstack/react-query'
+import { FaUsersRays } from "react-icons/fa6";
 
 const UserMenu = () => {
     const axiosSecure = useAxiosSecure()
@@ -48,9 +49,19 @@ const UserMenu = () => {
     return (
         <>
             <MenuItem
-                icon={BsFingerprint}
+                icon={FaUsersRays}
                 label='My Participated Contests'
                 address='my_participated_contests'
+            />
+            <MenuItem
+                icon={FaUsersRays}
+                label='My Winning Contests'
+                address='my_winning_contests'
+            />
+            <MenuItem
+                icon={FaUsersRays}
+                label='My Profile'
+                address='my_profile'
             />
 
             {role === 'user' && (

@@ -18,6 +18,9 @@ import ManageUsers from "../pages/ManageUsers"
 import ManageContests from "../pages/ManageContests"
 import ParticipatedContest from "../components/ParticipatedContest"
 import PaymentPage from "../pages/PaymentPage"
+import MyWinningContests from "../components/MyWinningContests"
+import MyProfile from "../components/MyProfile"
+import TopContests from "../pages/TopContests"
 
 
 const router = createBrowserRouter([
@@ -32,7 +35,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/contest-details/:id/payment',
-                element: <PaymentPage />
+                element: <PrivateRoute><PaymentPage /></PrivateRoute>
             },
             {
                 path: '/login',
@@ -52,7 +55,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/top_contests',
-                // element: <TopContests />
+                element: <TopContests />
             },
             {
                 path: '/contest-details/:id',
@@ -96,6 +99,14 @@ const router = createBrowserRouter([
             {
                 path: 'my_participated_contests',
                 element: <ParticipatedContest />
+            },
+            {
+                path: 'my_winning_contests',
+                element: <MyWinningContests />
+            },
+            {
+                path: 'my_profile',
+                element: <MyProfile />
             }
         ]
     },

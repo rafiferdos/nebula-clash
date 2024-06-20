@@ -26,6 +26,10 @@ const MyCreatedContest = () => {
     const [prize, setPrize] = useState('');
     const [task, setTask] = useState('');
     const [tags, setTags] = useState('');
+    const [deadline, setDeadline] = useState('');
+
+    const [currentId, setCurrentId] = useState(null);
+
 
     const {
         register,
@@ -50,29 +54,54 @@ const MyCreatedContest = () => {
 
     const { mutateAsync } = useMutation({
         mutationFn: async id => {
-          const { data } = await axiosSecure.delete(`/delete-contest/${id}`)
-          return data
+            const { data } = await axiosSecure.delete(`/delete-contest/${id}`)
+            return data
         },
         onSuccess: data => {
-          console.log(data)
-          refetch()
-          toast.success('Successfully deleted')
+            console.log(data)
+            refetch()
+            toast.success('Successfully deleted')
         },
-      })
-    
-      //  Handle Delete
-      const handleDelete = async id => {
+    })
+
+    //  Handle Delete
+    const handleDelete = async id => {
         console.log(id)
         try {
-          await mutateAsync(id)
+            await mutateAsync(id)
         } catch (err) {
-          console.log(err)
+            console.log(err)
         }
-      }
+    }
+
+
+    const handleUpdate = async (id) => {
+        console.log(id)
+        setCurrentId(id);
+        try {
+            const { data } = await axiosCommon.get(`/contest-details/${id}`);
+            setName(data.name);
+            setImage(data.image);
+            setDescription(data.description);
+            setRegistrationPrice(data.registrationPrice);
+            setPrize(data.prize);
+            setTask(data.task);
+            setTags(data.tags);
+            // setDeadline(new Date(data.deadline));
+            document.getElementById('my_modal_3').showModal();
+        } catch (error) {
+            console.error("Error fetching contest details:", error);
+        }
+
+
+
+    };
+
 
     const onSubmit = async (data) => {
 
 
+        console.log(currentId)
         try {
             const deadlineDate = new Date(data.deadline);
             const formattedDeadline = `${deadlineDate.getFullYear()}-${(
@@ -92,11 +121,14 @@ const MyCreatedContest = () => {
             };
 
 
-            const response = await axiosCommon.put(`/update-contest/${data._id}`, updatedData);
+            const response = await axiosCommon.put(`/update-contest/${currentId}`, updatedData);
 
             if (response.data.modifiedCount > 0) {
                 // Update successful
+                toast.success('Contest updated successfully');
                 reset();
+                document.getElementById('my_modal_3').close();
+                refetch();
                 // Optionally, refetch the contest data to update the UI
             } else {
                 // Handle the case where the update failed
@@ -106,23 +138,6 @@ const MyCreatedContest = () => {
         }
     };
 
-
-    const handleUpdate = async (id) => {
-        try {
-            const { data } = await axiosCommon.get(`/contest-details/${id}`);
-            setName(data.name);
-            setImage(data.image);
-            setDescription(data.description);
-            setRegistrationPrice(data.registrationPrice);
-            setPrize(data.prize);
-            setTask(data.task);
-            setTags(data.tags);
-            document.getElementById('my_modal_3').showModal();
-        } catch (error) {
-            console.error("Error fetching contest details:", error);
-        }
-
-    };
 
 
 
@@ -175,10 +190,10 @@ const MyCreatedContest = () => {
                                                         {description}
                                                     </td>
                                                     <td className="opacity-70">
-                                                        <div className="badge badge-accent badge-outline">{status || 'null'}</div>
+                                                        <div className={status === 'pending' ? "badge badge-warning badge-outline" : "badge badge-accent badge-outline"}>{status || 'null'}</div>
                                                     </td>
                                                     <th>
-                                                        <button onClick={() => { handleUpdate(_id) }} className="btn btn-circle btn-outline btn-warning">
+                                                        <button onClick={() => handleUpdate(_id)} className="btn btn-circle btn-outline btn-warning">
                                                             <LuPencil />
                                                         </button>
                                                     </th>
@@ -193,13 +208,13 @@ const MyCreatedContest = () => {
                                     }
                                 </tbody>
                             </table>
-                                {
-                                    contests && contests.length === 0 && 
-                                    <div className="h-64 flex flex-col items-center justify-center gap-7">
-                                        <h2 className="text-center text-2xl font-bold md:text-4xl">No contests found</h2>
-                                        <p className="opacity-70 text-lg">Try adding <Link to='/dashboard/add_contest' className="text-accent hover:underline-offset-4 underline lg:no-underline hover:underline cursor-pointer">contest</Link></p>
-                                    </div>
-                                }
+                            {
+                                contests && contests.length === 0 &&
+                                <div className="h-64 flex flex-col items-center justify-center gap-7">
+                                    <h2 className="text-center text-2xl font-bold md:text-4xl">No contests found</h2>
+                                    <p className="opacity-70 text-lg">Try adding <Link to='/dashboard/add_contest' className="text-accent hover:underline-offset-4 underline lg:no-underline hover:underline cursor-pointer">contest</Link></p>
+                                </div>
+                            }
                         </Fade>
                     </div>
                 </div>
@@ -255,7 +270,7 @@ const MyCreatedContest = () => {
                                 <option>Movie Review</option>
                             </select>
                         </div>
-                        {/* <h3>Choose Deadline</h3>
+                        <h3>Choose Deadline</h3>
                         <div className="text-center block">
                             <Controller
                                 control={control}
@@ -271,7 +286,7 @@ const MyCreatedContest = () => {
                                 )}
                             />
                             {errors.deadline && <span className='text-error'>This field is required</span>}
-                        </div> */}
+                        </div>
                         <div className="flex items-center justify-center">
                             <button className="btn glass lg:btn-lg md:btn-md btn-sm btn-wide rounded-full">Update</button>
                         </div>

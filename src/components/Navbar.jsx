@@ -89,8 +89,8 @@ const Navbar = () => {
                                                 </div>
                                             </li>
                                             <li><NavLink to='/dashboard'>My Dashboard</NavLink></li>
-                                            <li><NavLink to='/my_queries'>My Queries</NavLink></li>
-                                            <li><NavLink to='/my_recommendations'>My Recommendations</NavLink></li>
+                                            {/* <li><NavLink to='/my_queries'>My Queries</NavLink></li> */}
+                                            {/* <li><NavLink to='/my_recommendations'>My Recommendations</NavLink></li> */}
                                             <hr className="my-2" />
                                             <li
                                                 onClick={logOut}

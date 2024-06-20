@@ -2,13 +2,15 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import registerImg from '../../assets/images/registerImg.jpg';
 import logo from '../../assets/logo.png'
 import { AuthContext } from '../../provider/AuthProvider';
-import { useContext } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useForm } from 'react-hook-form';
 import { Fade } from 'react-awesome-reveal';
 import { ThemeContext } from '../../provider/ThemeProvider';
+import { LoadCanvasTemplate, loadCaptchaEnginge, validateCaptcha } from 'react-simple-captcha';
 // import { reload } from 'firebase/auth';
 // import { updateProfile } from 'firebase/auth';
+
 
 const Register = () => {
 
@@ -18,6 +20,14 @@ const Register = () => {
     const navigate = useNavigate()
     const location = useLocation()
     const from = location.state || '/'
+
+    const [disabled, setDisabled] = useState(true)
+
+    useEffect(() => {
+        loadCaptchaEnginge(6)
+    }, [])
+
+    const captchaRef = useRef(null)
 
     //* google sign in
     const handleGoogleSignIn = async () => {
@@ -61,6 +71,19 @@ const Register = () => {
         }
         catch (err) {
             toast.error(err?.message)
+        }
+    }
+
+    const handleValidateCaptcha = (e) => {
+        console.log(e.target.value)
+        const user_captcha_value = e.target.value
+        if(validateCaptcha(user_captcha_value)){
+            toast.success('Captcha is validated')
+            setDisabled(false)
+        }
+        else{
+            toast.error('Captcha is not validated')
+            setDisabled(true)
         }
     }
 
@@ -127,8 +150,23 @@ const Register = () => {
                                 {errors.password && <span className='text-error'>This field is required</span>}
                             </div>
 
+                            <div className="mt-4">
+                                <LoadCanvasTemplate />
+                                <input
+                                    ref={captchaRef}
+                                    id="captcha"
+                                    className="block w-full px-4 py-2 bg-base-100/50 border rounded-lg focus:ring-opacity-40 focus:outline-none focus:ring"
+                                    type="text"
+                                    {...register("captcha", { required: true })}
+                                    placeholder="Type the captcha above"
+                                    onBlur={handleValidateCaptcha}
+                                />
+                                {errors.captcha && <span className='text-error'>This field is required</span>}
+                                {/* <button onClick={handleValidateCaptcha} type='validate' className='btn-block glass btn my-3 bg-base-100/20'>Validate</button> */}
+                            </div>
+
                             <div className="mt-6">
-                                <button type='submit' className="w-full px-6 py-3 text-sm capitalize glass btn rounded-lg focus:outline-none font-nunito">
+                                <button type='submit' className="w-full px-6 py-3 text-sm capitalize glass btn rounded-lg focus:outline-none font-nunito" disabled={disabled}>
                                     Register
                                 </button>
                             </div>
