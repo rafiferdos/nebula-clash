@@ -50,7 +50,7 @@ Create a .env file in the root directory and add your Firebase and MongoDB crede
 
 5.  Start the development server:
     ```sh
-    npm start
+    npm run dev
 
 ## Github Repositories
 - Client: [nebula-clash](https://github.com/programming-hero-web-course1/b9a12-client-side-rafiferdos)
